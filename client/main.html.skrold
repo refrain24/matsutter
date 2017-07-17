@@ -1,0 +1,55 @@
+<head>
+  <title>matsutter</title>
+</head>
+<body>
+  <div>{{> loginButtons}}</div>
+  <div class="container">
+    <header>
+      <h1>matsutter</h1>
+    </header>
+{{#if currentUser}}
+  <form>
+          <input type="text" name="text" placeholder="" />
+        <input type="submit" value="つぶやく" />
+      </form>
+    <ul>
+      <h3>つぶやき一覧</h3>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+
+    <div id="demo1">
+        <div class="tab_area clearfix">
+            <ul>
+                <li class="even"><a href="#contents1">タイムライン</a></li>
+                <li class="odd"><a href="#contents2">あなたのつぶやき</a></li>
+                <li class="even"><a href="#contents3">タブ3</a></li>
+            </ul>
+        </div>
+        <div class="content_area">
+            <div class="content_area_inner clearfix">
+                <div id="contents1" class="content_block">
+                    ここはタブ1をクリックした時に表示されます。ここはタブ1をクリックした時に表示されます。ここはタブ1をクリックした時に表示されます。ここはタブ1をクリックした時に表示されます。
+                    ここはタブ1をクリックした時に表示されます。ここはタブ1をクリックした時に表示されます。ここはタブ1をクリックした時に表示されます。ここはタブ1をクリックした時に表示されます。
+                </div>
+                <div id="contents2" class="content_block">
+                    ここはタブ2をクリックした時に表示されます。ここはタブ2をクリックした時に表示されます。ここはタブ2をクリックした時に表示されます。ここはタブ2をクリックした時に表示されます。
+                    ここはタブ2をクリックした時に表示されます。ここはタブ2をクリックした時に表示されます。ここはタブ2をクリックした時に表示されます。ここはタブ2をクリックした時に表示されます。
+                </div>
+                <div id="contents3" class="content_block">
+                    ここはタブ3をクリックした時に表示されます。ここはタブ3をクリックした時に表示されます。ここはタブ3をクリックした時に表示されます。ここはタブ3をクリックした時に表示されます。
+                    ここはタブ3をクリックした時に表示されます。ここはタブ3をクリックした時に表示されます。ここはタブ3をクリックした時に表示されます。ここはタブ3をクリックした時に表示されます。
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <p>ログインしてね</p>
+    {{/if}}
+  </div>
+</body>
+
+<template name="task">
+  <li>{{username}}：{{text}}  {{createdAt}}</li>
+</template>
