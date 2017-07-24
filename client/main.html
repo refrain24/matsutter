@@ -1,35 +1,47 @@
 <head>
   <title>matsutter</title>
 </head>
-
 <body>
-  <div>{{> loginButtons}}</div>
   <div class="container">
-    <header>
-      <h1>matsutter</h1>
-    </header>
-    {{#if currentUser}}
-    <form>
-      <input type="text" name="text" placeholder="" />
-      <input type="submit" value="つぶやく" />
-    </form>
-    <h3>つぶやき一覧</h3>
-
-    <!--吹き出しはじまり-->
-    <div class="balloon5">
-      {{#each tweets}}
-      <div class="faceicon">
-        <span class="emj">&#x1F604;</span>{{username}}
-      </div>
-      <div class="chatting">
-        <div class="says">{{text}} {{score}}</div>
-      </div>
-      {{/each}}
+    <div class="row">
+      <div class="col-xs-1">
+        <div>{{> loginButtons}}</div>
+        <div class="container">
+          <header>
+            <h1>matsutter</h1>
+          </header>
+          {{#if currentUser}}
+          <form class="form-horizontal">
+            <input type="text" name="text" placeholder="" />
+            <input type="submit" class="btn btn-primary" value="つぶやく" />
+          </form>
+          <h3>つぶやき一覧</h3>
+          <div class="popover right show" style="position:relative; max-width:100%;">
+    <div class="arrow"></div>
+    <div class="popover-content">
+        <p>
+            内容
+        </p>
     </div>
-    <!--吹き出しおわり-->
+</div>
+          <!--吹き出しはじまり-->
+          <div class="balloon5">
+            {{#each tweets}}
+            <div class="faceicon">
+              {{username}}
+            </div>
+            <div class="chatting">
+              <div class="says">{{text}} {{score}}</div>
+            </div>
+            {{/each}}
+          </div>
+          <!--吹き出しおわり-->
 
-    {{else}}
-    <p>ログインしてね</p>
-    {{/if}}
+          {{else}}
+          <p>ログインしてね</p>
+          {{/if}}
+        </div>
+      </div>
+    </div>
   </div>
 </body>
