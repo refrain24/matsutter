@@ -19,22 +19,23 @@ if (Meteor.isServer) {
             var uid = this.userId;
 
             // 感情分析api呼び出し
-            // var result = HTTP.call('POST', 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=env.API_KEY', {
-            //   data: {
-            //     "encodingType": "UTF8",
-            //     "document": {
-            //       "type": "PLAIN_TEXT",
-            //       "content": text
-            //     }
-            //   }
-            // }, function(error, result) {
+            var result = HTTP.call('POST', 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=process.env.API_KEY', {
+              data: {
+                "encodingType": "UTF8",
+                "document": {
+                  "type": "PLAIN_TEXT",
+                  "content": text
+                }
+              }
+            }, function(error, result) {
               Tweets.insert({
                 text: text,
                 userId: Meteor.userId(),
                 username: Meteor.user().username,
-                // score: result.data.documentSentiment.score
+                createdAt: new Date(),
+                score: result.data.documentSentiment.score
               });
-            // });
+            });
           }
         });
 
