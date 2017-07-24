@@ -19,7 +19,8 @@ if (Meteor.isServer) {
             var uid = this.userId;
 
             // 感情分析api呼び出し
-            var result = HTTP.call('POST', 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=process.env.API_KEY', {
+            var apiKey = 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=' + process.env.API_KEY;
+            var result = HTTP.call('POST', apiKey, {
               data: {
                 "encodingType": "UTF8",
                 "document": {
