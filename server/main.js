@@ -32,7 +32,7 @@ if (Meteor.isServer) {
                 text: text,
                 userId: Meteor.userId(),
                 username: Meteor.user().username,
-                score: result.data.documentSentiment.score
+                // score: result.data.documentSentiment.score
               });
             // });
           }
