@@ -8,31 +8,31 @@
         <div>{{> loginButtons}}</div>
         <div class="container">
           <header>
-            <h1>matsutter</h1>
+            <h2>matsutter</h2>
           </header>
           {{#if currentUser}}
           <form class="form-horizontal">
             <input type="text" name="text" placeholder="" />
             <input type="submit" class="btn btn-primary" value="つぶやく" />
           </form>
-          <h3>つぶやき一覧</h3>
-          <div class="popover right show" style="position:relative; max-width:100%;">
+          <h4>つぶやき一覧</h4>
+          <!-- <div class="popover right show" style="position:relative; max-width:100%;">
     <div class="arrow"></div>
     <div class="popover-content">
         <p>
             内容
         </p>
     </div>
-</div>
+</div> -->
           <!--吹き出しはじまり-->
           <div class="balloon5">
             {{#each tweets}}
             <div class="faceicon">
-              <img src="img/001-happy-2.png"/>
+              <img src="{{imgScore}}"/>
               {{username}}
             </div>
             <div class="chatting">
-              <div class="says">{{text}} {{score}}</div>
+              <div class="says">{{text}} （{{score}}）</div>
             </div>
             {{/each}}
           </div>
