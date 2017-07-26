@@ -1,22 +1,24 @@
 <head>
   <title>matsutter</title>
+  <meta name="viewport" content="width=device-width">
 </head>
+
 <body>
   <div class="container">
     <div class="row">
       <div class="col-xs-1">
-        <div>{{> loginButtons}}</div>
-        <div class="container">
-          <header>
-            <h2>matsutter</h2>
-          </header>
-          {{#if currentUser}}
-          <form class="form-horizontal">
-            <input type="text" name="text" placeholder="" />
-            <input type="submit" class="btn btn-primary" value="つぶやく" />
-          </form>
-          <h4>つぶやき一覧</h4>
-          <!-- <div class="popover right show" style="position:relative; max-width:100%;">
+        <div>
+          <h4>{{> loginButtons}}</h4></div>
+        <header>
+          <h2>matsutter</h2>
+        </header>
+        {{#if currentUser}}
+        <form class="form-horizontal">
+          <input type="text" name="text" placeholder="" />
+          <input type="submit" class="btn btn-primary" value="つぶやく" />
+        </form>
+        <h4>つぶやき一覧</h4>
+        <!-- <div class="popover right show" style="position:relative; max-width:100%;">
     <div class="arrow"></div>
     <div class="popover-content">
         <p>
@@ -24,24 +26,42 @@
         </p>
     </div>
 </div> -->
-          <!--吹き出しはじまり-->
-          <div class="balloon5">
-            {{#each tweets}}
-            <div class="faceicon">
-              <img src="{{imgScore}}"/>
+        <!--吹き出しはじまり-->
+        <!-- <div class="balloon5">
+          {{#each tweets}}
+          <div class="faceicon">
+            <img src="{{imgScore}}" />
+            <div class="name">
               {{username}}
             </div>
-            <div class="chatting">
-              <div class="says">{{text}} （{{score}}）</div>
-            </div>
-            {{/each}}
           </div>
-          <!--吹き出しおわり-->
+          <div class="chatting">
+            <div class="says">{{text}} （{{score}}）</div>
+          </div>
+          {{/each}}
+        </div> -->
+        <!--吹き出しおわり-->
 
-          {{else}}
-          <p>ログインしてね</p>
-          {{/if}}
+
+        {{#each tweets}}
+        <div class="kaiwa">
+          <figure class="kaiwa-img-left">
+            <img src="{{imgScore}}" alt="no-img2">
+            <figcaption class="kaiwa-img-description">
+              {{username}}
+            </figcaption>
+          </figure>
+          <div class="kaiwa-text-right">
+            <p class="kaiwa-text">
+              {{text}} （{{score}}）
+            </p>
+          </div>
         </div>
+        {{/each}}
+
+        {{else}}
+        <p>ログインしてね</p>
+        {{/if}}
       </div>
     </div>
   </div>
